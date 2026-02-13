@@ -2,7 +2,12 @@ import React from 'react'
 
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <div className='settings'>
+      <div className='settings__boxes'>
+        <p className='settings__text'>Change Background: </p>
+        <input type="color" />
+      </div>
+    </div>
   )
 }
 
