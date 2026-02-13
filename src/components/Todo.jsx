@@ -1,26 +1,41 @@
-import React from 'react'
-
+import React, {useState} from "react";
+import {useAsyncError} from "react-router-dom";
+import TodoItems from "./TodoItems";
+let data = [];
 const Todo = () => {
+  const [todoData, setTodoData] = useState([]);
+  const [id, setId] = useState(0);
+  const [inputValue, setInputValue] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim()) {
+      setId((eid) => eid + 1);
+      const objData = {
+        id,
+        text: inputValue.trim(),
+      };
+      if (data[0]) {
+        setTodoData(data)
+      } else {
+        setTodoData([...todoData, objData]);
+      }
+    }
+  };
   return (
-    <div className='main__todo'>
-      <form className='main__form' action="">
-        <input className='main__input' type="text" />
-        <button className='main__todo-button'>Add</button>
+    <div className="main__todo">
+      <form onSubmit={(e) => handleSubmit(e)} className="main__form" action="">
+        <input
+          onChange={(e) => setInputValue(e.target.value)}
+          className="main__input"
+          type="text"
+        />
+        <button className="main__todo-button">Add</button>
       </form>
-      <div className='main__todos'>
-        <div className='main__todo-item'>
-          <span className='main__todo-id'>1</span>
-          <p className='main__todo-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sunt?</p>
-          <button className='main__todo-del'>delete</button>
-        </div>
-        <div className='main__todo-item'>
-          <span className='main__todo-id'>1</span>
-          <p className='main__todo-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sunt?</p>
-          <button className='main__todo-del'>delete</button>
-        </div>
+      <div className="main__todos">
+        <TodoItems data={todoData} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;

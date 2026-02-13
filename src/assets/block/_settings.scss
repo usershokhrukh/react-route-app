@@ -1,0 +1,15 @@
+.settings {
+  @include display();
+  padding: 6% 10px;
+
+  &__boxes {
+    @include display();
+    width: 100%;
+    justify-content: space-between;
+    max-width: 500px;
+  }
+
+  &__text {
+    opacity: 0.7;
+  }
+}
