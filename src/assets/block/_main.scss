@@ -1,6 +1,7 @@
 .main {
   &__ul {
     @include display();
+    width: 100%;
     justify-content: start;
     gap: 10px;
     padding: 30px 15%;

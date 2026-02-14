@@ -1,11 +1,9 @@
 import React from "react";
 
 const TodoItems = ({data}) => {
-  console.log(data);
   function handleDelete(id) {
     const items = document.querySelectorAll(".main__todo-item");
     items[id].classList.add("removed");
-    console.log(items[id]);
   }
 
   return data?.map((item) => {

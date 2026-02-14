@@ -1,6 +1,7 @@
 .settings {
   @include display();
   padding: 6% 10px;
+  
 
   &__boxes {
     @include display();
