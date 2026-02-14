@@ -12,7 +12,7 @@ const TodoItems = ({data}) => {
     }
     return (
       <div key={item} className="main__todo-item">
-        <span className="main__todo-id">{item?.id}</span>
+        <span className="main__todo-id">{item?.id +1}</span>
         <p className="main__todo-text">{item?.text}</p>
         <button key={item.id} onClick={handleId} className="main__todo-del">
           delete

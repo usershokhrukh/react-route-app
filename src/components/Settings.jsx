@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
-
+import History from "./History";
 const Settings = () => {
   const [color, setColor] = useState("");  
   const body = document.querySelector("body");
   body.style.cssText = `background-color: ${color}`
+  const history = {
+    text: `Background color changed to: ${color}`,
+  }
+  localStorage.setItem("color", JSON.stringify(history))
   return (
     <div className='settings'>
       <div className='settings__boxes'>
